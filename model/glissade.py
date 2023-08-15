@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from engine.willoughby_engine import WilloughbyEngine
+from battery.spindler_battery import SpindlerBattery
 
 
 class Glissade(WilloughbyEngine):

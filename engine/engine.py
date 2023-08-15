@@ -1,15 +1,11 @@
-from car import Serviceable
+from abc import ABC
 
-class Engine(Serviceable):
-    def __init__(self, last_service_date):
-        self.last_service_date = last_service_date
-
+class Engine(ABC):
     def needs_service(self):
         pass 
 
 class SternmanEngine(Engine):
-    def __init__(self, last_service_date, warning_light_is_on):
-        super().__init__(last_service_date)
+    def __init__(self, warning_light_is_on):
         self.warning_light_is_on = warning_light_is_on
 
     def needs_service(self):
@@ -19,8 +15,7 @@ class SternmanEngine(Engine):
             return False
         
 class WilloughbyEngine(Engine):
-    def __init__(self, last_service_date, current_mileage, last_service_mileage):
-        super().__init__(last_service_date)
+    def __init__(self, current_mileage, last_service_mileage):
         self.current_mileage = current_mileage
         self.last_service_mileage = last_service_mileage
 
@@ -28,8 +23,7 @@ class WilloughbyEngine(Engine):
         return self.current_mileage - self.last_service_mileage > 60000
     
 class CapuletEngine(Engine):
-    def __init__(self, last_service_date, current_mileage, last_service_mileage):
-        super().__init__(last_service_date)
+    def __init__(self, current_mileage, last_service_mileage):
         self.current_mileage = current_mileage
         self.last_service_mileage = last_service_mileage
 
