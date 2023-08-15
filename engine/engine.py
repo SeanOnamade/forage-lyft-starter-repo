@@ -9,10 +9,7 @@ class SternmanEngine(Engine):
         self.warning_light_is_on = warning_light_is_on
 
     def needs_service(self):
-        if self.warning_light_is_on:
-            return True
-        else:
-            return False
+        return self.warning_light_is_on
         
 class WilloughbyEngine(Engine):
     def __init__(self, current_mileage, last_service_mileage):
